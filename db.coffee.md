@@ -1,5 +1,5 @@
     seem = require 'seem'
-    debug = (require 'debug') 'wandering-country:client-db'
+    debug = (require 'debug') 'wandering-country-client:db'
 
 PouchDB Store
 =============
@@ -20,7 +20,7 @@ Tests
 
 Use local (in-browser) PouchDB for tests.
 
-      if @cfg.db?
+      if @cfg?.db?
         debug 'Using database', @cfg.db
         db = new PouchDB @cfg.db
         user_db = (name) ->
@@ -40,6 +40,7 @@ Module `spicy-action-user` defines `get-user-data` and its response, `user-data`
         debug 'Waiting for user-data…'
         user = yield new Promise (resolve) ->
           ev.one 'user-data', (data) ->
+            debug 'Received user-data', data
             resolve data
           ev.trigger 'get-user-data'
 
