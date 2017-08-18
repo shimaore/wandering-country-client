@@ -6,7 +6,7 @@
 
   debug = (require('debug'))('wandering-country-client:db');
 
-  PouchDB = require('pouchdb-browser');
+  PouchDB = require('pouchdb-core').plugin(require('pouchdb-adapter-http')).plugin(require('pouchdb-mapreduce'));
 
   module.exports = get_client_db = seem(function*(ev) {
     var db, db_name, location, ref, user, user_db;
