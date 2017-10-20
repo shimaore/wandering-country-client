@@ -4,9 +4,7 @@
 PouchDB Store
 =============
 
-    PouchDB = require 'pouchdb-core'
-      .plugin require 'pouchdb-adapter-http'
-      .plugin require 'pouchdb-mapreduce'
+    PouchDB = require 'ccnq4-pouchdb'
     # PouchDB.plugin require 'pouchdb-find' # in CouchDB 2.0
 
     module.exports = get_client_db = seem (ev) ->
